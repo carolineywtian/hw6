@@ -1,0 +1,15 @@
+# Secrets: the real Portkey key lives in .env, which must never be committed (use .env.example)
+.env
+.env.*
+!.env.example
+
+# Local environments and caches
+.venv/
+__pycache__/
+*.pyc
+*.tmp
+.DS_Store
+
+# Source zips (their unzipped contents are committed in data/)
+*.zip
+data/my_attacks/README.txt

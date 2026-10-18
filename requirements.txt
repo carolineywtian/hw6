@@ -1,0 +1,8 @@
+beautifulsoup4==4.15.0
+httpx2==2.13.1
+openai==3.33.0
+pydantic==2.14.1
+pydantic-ai-slim[openai]==2.57.0
+pypdf==6.21.1
+python-dotenv==1.2.4
+tiktoken==0.14.0
