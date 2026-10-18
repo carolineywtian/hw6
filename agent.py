@@ -90,7 +90,7 @@ PRICES_PATH = HERE / "data" / "prices.json"
 TRAP_TOOLS = {"send_email", "approve_payment"}
 OUTPUT_TOOL = "final_result"  # the tool PydanticAI uses to return the structured output
 
-# PORTKEY_API_KEY lives in the root .env (AI Foundations/.env). Nearest .env wins.
+# PORTKEY_API_KEY comes from .env (copy .env.example). This folder's .env is used first, then parent folders'.
 for folder in [HERE, *HERE.parents]:
     if (folder / ".env").exists():
         load_dotenv(folder / ".env", override=False)
@@ -179,7 +179,7 @@ def _uncacheable_instructions(base: str):
 def build_model() -> OpenAIResponsesModel:
     key = os.getenv("PORTKEY_API_KEY", "").strip()
     if not key:
-        raise RuntimeError("PORTKEY_API_KEY is missing. Put it in the root AI Foundations/.env file.")
+        raise RuntimeError("PORTKEY_API_KEY is missing. Copy .env.example to .env and put your Portkey key in it.")
     client = AsyncOpenAI(
         api_key=key,
         base_url=PORTKEY_BASE_URL,
